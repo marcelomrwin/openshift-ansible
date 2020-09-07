@@ -28,7 +28,7 @@ Requires:      %{name}-roles = %{version}-%{release}
 Obsoletes:     atomic-openshift-utils <= 3.10
 Requires:      java-1.8.0-openjdk-headless
 Requires:      httpd-tools
-Requires:      libselinux-python
+Requires:      libselinux-python3
 Requires:      python-passlib
 Requires:      python2-crypto
 Requires:      patch
@@ -7520,7 +7520,7 @@ BuildArch:     noarch
   (jchaloup@redhat.com)
 - Making router pods scale with infra nodes (esauer@redhat.com)
 - Provisioning of nfs share and PV for logging ops (efreiber@redhat.com)
-- Add libselinux-python dependency for localhost (sdodson@redhat.com)
+- Add libselinux-python3 dependency for localhost (sdodson@redhat.com)
 - oc secrets now done via oc_secret module (smilner@redhat.com)
 - More fixes for reboot/wait for hosts. (dgoodwin@redhat.com)
 - fix openshift_logging where defaults filter needs quoting
@@ -8912,7 +8912,7 @@ BuildArch:     noarch
   (dgoodwin@redhat.com)
 - Debug output. (dgoodwin@redhat.com)
 - cleanup broken symlinks - lookup_plugins filter_plugins (tdawson@redhat.com)
-- Add libselinux-python as a dependency for the installation process
+- Add libselinux-python3 as a dependency for the installation process
   (frederic.boulet@gmail.com)
 
 * Tue Jul 05 2016 Scott Dodson <sdodson@redhat.com> 3.3.1-1

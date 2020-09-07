@@ -52,19 +52,18 @@ default_r_openshift_node_image_prep_packages:
 - httpd-tools
 - bind-utils
 - firewalld
-- libselinux-python
+- libselinux-python3
 - conntrack-tools
 - openssl
 - iproute
 - python-dbus
-- PyYAML
+- python3-PyYAML
 - yum-utils
 - glusterfs-fuse
 - device-mapper-multipath
 - nfs-utils
 - iscsi-initiator-utils
 - ceph-common
-- atomic
 - cifs-utils    # requested by Azure
 - samba-common  # requested by Azure
 - samba-client  # requested by Azure

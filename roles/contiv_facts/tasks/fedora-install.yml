@@ -15,11 +15,11 @@
     http_proxy: "{{ contiv_http_proxy }}"
     no_proxy: "{{ contiv_no_proxy }}"
 
-- name: Install libselinux-python
+- name: Install libselinux-python3
   command: dnf install {{ item }} -y
   with_items:
     - python-dnf
-    - libselinux-python
+    - libselinux-python3
   environment:
     https_proxy: "{{ contiv_https_proxy }}"
     http_proxy: "{{ contiv_http_proxy }}"

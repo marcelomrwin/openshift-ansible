@@ -57,7 +57,7 @@ class PackageAvailability(NotContainerizedMixin, OpenShiftCheck):
             "iptables-services",
             "iptables",
             "iscsi-initiator-utils",
-            "libselinux-python",
+            "libselinux-python3",
             "nfs-utils",
             "ntp",
             "openssl",

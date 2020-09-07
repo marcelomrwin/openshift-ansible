@@ -6,24 +6,39 @@ nodes
 etcd
 
 [OSEv3:vars]
+ansible_become=yes
+ansible_ssh_user=masales
+#osm_use_cockpit=true
+openshift_clock_enabled=true
+openshift_docker_options='--selinux-enabled --insecure-registry 172.30.0.0/16'
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+openshift_master_htpasswd_users={'admin': '$apr1$LDUvvylp$sOP3cx4rTgyNpkPGtaULx.'}
+openshift_enable_unsupported_configurations=True
+openshift_cluster_monitoring_operator_install=false
+openshift_hosted_router_replicas=1
+openshift_hosted_registry_replicas=1
+
 # if your target hosts are Fedora uncomment this
 ansible_python_interpreter=/usr/bin/python3
 openshift_pkg_version=-3.11.*
 openshift_service_type=origin
 openshift_deployment_type=origin
+deployment_type=origin
 openshift_portal_net=172.30.0.0/16
 # localhost likely doesn't meet the minimum requirements
-openshift_disable_check=disk_availability,memory_availability
+openshift_disable_check=disk_availability,memory_availability,docker_storage
 
 openshift_node_groups=[{'name': 'node-config-all-in-one', 'labels': ['node-role.kubernetes.io/master=true', 'node-role.kubernetes.io/infra=true', 'node-role.kubernetes.io/compute=true']}]
 
+openshift_master_cluster_hostname=fedora-redhat.masales.com
+openshift_master_default_subdomain=okd.masales.com
 
 [masters]
-localhost ansible_connection=local
+fedora-redhat.masales.com ansible_connection=local
 
 [etcd]
-localhost ansible_connection=local
+fedora-redhat.masales.com ansible_connection=local
 
 [nodes]
 # openshift_node_group_name should refer to a dictionary with matching key of name in list openshift_node_groups.
-localhost ansible_connection=local openshift_node_group_name="node-config-all-in-one"
+fedora-redhat.masales.com ansible_connection=local openshift_node_group_name="node-config-all-in-one"

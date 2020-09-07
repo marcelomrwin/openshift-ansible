@@ -3,9 +3,9 @@
 - when: not (openshift_is_atomic | default(False))
   block:
   # TODO: This needs to be removed and placed into a role
-  - name: Ensure libselinux-python is installed
+  - name: Ensure libselinux-python3 is installed
     package:
-      name: "{{ 'libselinux-python3' if ansible_distribution == 'Fedora' else 'libselinux-python' }}"
+      name: "libselinux-python3"
       state: present
     register: result
     until: result is succeeded
